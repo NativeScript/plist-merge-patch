@@ -3,6 +3,7 @@
 /package
 *.js
 *.js.map
+*.d.ts
 .tsdrc
 *.tgz
 npm-debug.log

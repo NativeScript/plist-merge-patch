@@ -3,25 +3,30 @@
   "main": "src/index.js",
   "license": "Apache-2.0",
   "version": "0.1.1",
+  "files": [
+    "src/*.js",
+    "src/*.map",
+    "src/*.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/NativeScript/plist-merge-patch.git"
   },
   "dependencies": {
-    "lodash": "4.17.4",
-    "plist": "2.1.0"
+    "lodash": "4.17.21",
+    "plist": "3.0.6"
   },
   "devDependencies": {
     "@types/lodash": "4.14.50",
     "@types/mocha": "2.2.41",
     "@types/node": "8.0.8",
-    "mocha": "2.3.4",
-    "tslint": "5.5.0",
-    "typescript": "2.4.1"
+    "@types/plist": "^3.0.2",
+    "mocha": "10.2.0",
+    "typescript": "5.0.2"
   },
   "scripts": {
-    "tslint": "tslint -p tsconfig.json --type-check",
-    "test": "node ./node_modules/tslint/bin/tslint -p tsconfig.json --type-check && node ./node_modules/typescript/bin/tsc && node ./node_modules/mocha/bin/mocha tests/test.js",
-    "prepublish": "node ./node_modules/typescript/bin/tsc -p tsconfig.json && node ./node_modules/mocha/bin/mocha tests/test.js"
+    "test": "tsc && mocha tests/test.js",
+    "dev": "tsc --watch",
+    "prepack": "npm run test"
   }
 }
